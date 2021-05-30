@@ -4,25 +4,26 @@ import sr2 from "../../assets/img/blog/sidebar/sr-2.jpg";
 import sr3 from "../../assets/img/blog/sidebar/sr-3.jpg";
 import DetailsPic from "../../assets/img/blog/details/details-pic.jpg";
 import DetailsAuthor from "../../assets/img/blog/details/details-author.jpg";
+import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 
 const BlogDetails = () => {
   return (
     <div>
-      <h1>BlogDetails</h1>
-      <section class="blog-details spad">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-5 order-md-1 order-2">
-              <div class="blog__sidebar">
-                <div class="blog__sidebar__search">
+      <Breadcrumb title="Bolg Details" />
+      <section className="blog-details spad">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-4 col-md-5 order-md-1 order-2">
+              <div className="blog__sidebar">
+                <div className="blog__sidebar__search">
                   <form action="#">
                     <input type="text" placeholder="Search..." />
                     <button type="submit">
-                      <span class="icon_search"></span>
+                      <span className="icon_search"></span>
                     </button>
                   </form>
                 </div>
-                <div class="blog__sidebar__item">
+                <div className="blog__sidebar__item">
                   <h4>Categories</h4>
                   <ul>
                     <li>
@@ -42,14 +43,14 @@ const BlogDetails = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="blog__sidebar__item">
+                <div className="blog__sidebar__item">
                   <h4>Recent News</h4>
-                  <div class="blog__sidebar__recent">
-                    <a href="void(0)" class="blog__sidebar__recent__item">
-                      <div class="blog__sidebar__recent__item__pic">
+                  <div className="blog__sidebar__recent">
+                    <a href="void(0)" className="blog__sidebar__recent__item">
+                      <div className="blog__sidebar__recent__item__pic">
                         <img src={sr1} alt="sr1" />
                       </div>
-                      <div class="blog__sidebar__recent__item__text">
+                      <div className="blog__sidebar__recent__item__text">
                         <h6>
                           09 Kinds Of Vegetables
                           <br /> Protect The Liver
@@ -57,11 +58,11 @@ const BlogDetails = () => {
                         <span>MAR 05, 2019</span>
                       </div>
                     </a>
-                    <a href="void(0)" class="blog__sidebar__recent__item">
-                      <div class="blog__sidebar__recent__item__pic">
+                    <a href="void(0)" className="blog__sidebar__recent__item">
+                      <div className="blog__sidebar__recent__item__pic">
                         <img src={sr2} alt="sr2" />
                       </div>
-                      <div class="blog__sidebar__recent__item__text">
+                      <div className="blog__sidebar__recent__item__text">
                         <h6>
                           Tips You To Balance
                           <br /> Nutrition Meal Day
@@ -69,11 +70,11 @@ const BlogDetails = () => {
                         <span>MAR 05, 2019</span>
                       </div>
                     </a>
-                    <a href="void(0)" class="blog__sidebar__recent__item">
-                      <div class="blog__sidebar__recent__item__pic">
+                    <a href="void(0)" className="blog__sidebar__recent__item">
+                      <div className="blog__sidebar__recent__item__pic">
                         <img src={sr3} alt="sr3" />
                       </div>
-                      <div class="blog__sidebar__recent__item__text">
+                      <div className="blog__sidebar__recent__item__text">
                         <h6>
                           4 Principles Help You Lose <br />
                           Weight With Vegetables
@@ -83,9 +84,9 @@ const BlogDetails = () => {
                     </a>
                   </div>
                 </div>
-                <div class="blog__sidebar__item">
+                <div className="blog__sidebar__item">
                   <h4>Search By</h4>
-                  <div class="blog__sidebar__item__tags">
+                  <div className="blog__sidebar__item__tags">
                     <a href="void(0)">Apple</a>
                     <a href="void(0)">Beauty</a>
                     <a href="void(0)">Vegetables</a>
@@ -96,8 +97,8 @@ const BlogDetails = () => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 col-md-7 order-md-1 order-1">
-              <div class="blog__details__text">
+            <div className="col-lg-8 col-md-7 order-md-1 order-1">
+              <div className="blog__details__text">
                 <img src={DetailsPic} alt="detailsPic" />
                 <p>
                   Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam
@@ -125,21 +126,21 @@ const BlogDetails = () => {
                   the main house, the adjacent stables
                 </p>
               </div>
-              <div class="blog__details__content">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="blog__details__author">
-                      <div class="blog__details__author__pic">
+              <div className="blog__details__content">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <div className="blog__details__author">
+                      <div className="blog__details__author__pic">
                         <img src={DetailsAuthor} alt="DetailsAuthor" />
                       </div>
-                      <div class="blog__details__author__text">
+                      <div className="blog__details__author__text">
                         <h6>Michael Scofield</h6>
                         <span>Admin</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="blog__details__widget">
+                  <div className="col-lg-6">
+                    <div className="blog__details__widget">
                       <ul>
                         <li>
                           <span>Categories:</span> Food
@@ -149,21 +150,21 @@ const BlogDetails = () => {
                           Food, Life Style
                         </li>
                       </ul>
-                      <div class="blog__details__social">
+                      <div className="blog__details__social">
                         <a href="void(0)">
-                          <i class="fa fa-facebook"></i>
+                          <i className="fa fa-facebook"></i>
                         </a>
                         <a href="void(0)">
-                          <i class="fa fa-twitter"></i>
+                          <i className="fa fa-twitter"></i>
                         </a>
                         <a href="void(0)">
-                          <i class="fa fa-google-plus"></i>
+                          <i className="fa fa-google-plus"></i>
                         </a>
                         <a href="void(0)">
-                          <i class="fa fa-linkedin"></i>
+                          <i className="fa fa-linkedin"></i>
                         </a>
                         <a href="void(0)">
-                          <i class="fa fa-envelope"></i>
+                          <i className="fa fa-envelope"></i>
                         </a>
                       </div>
                     </div>

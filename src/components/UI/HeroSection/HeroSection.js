@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Banner from "../../../assets/img/hero/banner.jpg";
+import Dropdown from "./Dropdown";
 
 const HeroSection = () => {
   const location = useLocation();
@@ -11,7 +12,7 @@ const HeroSection = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <div className="hero__categories">
+              {/* <div className="hero__categories">
                 <div className="hero__categories__all  ">
                   <i className="fa fa-bars"></i>
                   <span>All departments</span>
@@ -51,7 +52,8 @@ const HeroSection = () => {
                     <a href="void(0)">Fresh Bananas</a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
+              <Dropdown />
             </div>
 
             <div className="col-lg-9">
@@ -79,8 +81,14 @@ const HeroSection = () => {
                 </div>
               </div>
               {isHomepage ? (
-                <div className="hero__item set-bg">
-                  <img src={Banner} alt="Banner" />
+                <div
+                  className="hero__item set-bg"
+                  style={{ backgroundImage: `url(${Banner})` }}
+                >
+                  {/* data-setbg="img/breadcrumb.jpg"
+        style={{ backgroundImage: `url(${BreadcrumbImg})` }} */}
+
+                  {/* <img src={Banner} alt="Banner" /> */}
                   <div className="hero__text">
                     <span>FRUIT FRESH</span>
                     <h2>

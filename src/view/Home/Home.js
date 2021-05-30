@@ -8,7 +8,6 @@ import LatestProductSection from "./LatestProductSection/LatestProductSection";
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
       <CategoriesSection />
       <FeaturedSection />
       <Banner />

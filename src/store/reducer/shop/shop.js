@@ -14,7 +14,7 @@ export default (state = data, action) => {
         ...state,
         dataList: [],
       };
-    case actionLabels.GET_DATA_BY_CATEGORY_REQUEST_SUCCESS:
+    case actionLabels.GET_PRODUCT_BY_CATEGORY_REQUEST_SUCCESS:
       return {
         ...state,
         data: action.payload.dataList,

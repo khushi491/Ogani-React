@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import createSagaMiddleware from "redux-saga";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 import rootReducer from "./store/reducer/index";
 import rootSaga from "./store/saga/index";
 import { Provider } from "react-redux";
@@ -9,15 +9,31 @@ import "./index.css";
 import App from "./App";
 import "./assets/css/style.css";
 import "./assets/sass/style.scss";
+
 import reportWebVitals from "./reportWebVitals";
+
+const composeEnhancers =
+  process.env.NODE_ENV === "development"
+    ? // eslint-disable-next-line no-underscore-dangle
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : null || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middlewares = [sagaMiddleware];
-
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware))
+);
 
 sagaMiddleware.run(rootSaga);
+
+// const sagaMiddleware = createSagaMiddleware();
+
+// const middlewares = [sagaMiddleware];
+
+// const store = createStore(rootReducer, applyMiddleware(...middlewares));
+
+// sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>

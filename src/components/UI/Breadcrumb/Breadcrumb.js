@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import BreadcrumbImg from "../../../assets/img/breadcrumb.jpg";
 
 const routes = [{ path: "/shopGrid", breadcrumb: "Shop Grid" }];
 
@@ -12,6 +13,7 @@ const Breadcrumb = ({ title }) => {
       <section
         className="breadcrumb-section set-bg"
         data-setbg="img/breadcrumb.jpg"
+        style={{ backgroundImage: `url(${BreadcrumbImg})` }}
       >
         <div className="container">
           <div className="row">
@@ -20,9 +22,9 @@ const Breadcrumb = ({ title }) => {
                 <h2>{title}</h2>
                 {breadcrumb.map(({ key, match, breadcrumb }) => {
                   return (
-                    <li key={key} className="breadcrumb__option">
+                    <span key={key} className="breadcrumb__option">
                       <Link to={match.url}>{breadcrumb}</Link>
-                    </li>
+                    </span>
                   );
                 })}
               </div>

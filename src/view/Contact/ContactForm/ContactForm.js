@@ -3,26 +3,26 @@ import React from "react";
 const ContactForm = () => {
   return (
     <div>
-      <div class="contact-form spad">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="contact__form__title">
+      <div className="contact-form spad">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="contact__form__title">
                 <h2>Leave Message</h2>
               </div>
             </div>
           </div>
           <form action="#">
-            <div class="row">
-              <div class="col-lg-6 col-md-6">
+            <div className="row">
+              <div className="col-lg-6 col-md-6">
                 <input type="text" placeholder="Your name" />
               </div>
-              <div class="col-lg-6 col-md-6">
+              <div className="col-lg-6 col-md-6">
                 <input type="text" placeholder="Your Email" />
               </div>
-              <div class="col-lg-12 text-center">
+              <div className="col-lg-12 text-center">
                 <textarea placeholder="Your message"></textarea>
-                <button type="submit" class="site-btn">
+                <button type="submit" className="site-btn">
                   SEND MESSAGE
                 </button>
               </div>

@@ -15,20 +15,20 @@ export const getDataRequestFail = () => {
     type: actionLables.GET_DATA_REQUEST_FAIL,
   };
 };
-export const getDataByCategoryRequest = (category) => {
+export const getProductByCategoryRequest = (category) => {
   return {
-    type: actionLables.GET_DATA_BY_CATEGORY_REQUEST,
+    type: actionLables.GET_PRODUCT_BY_CATEGORY_REQUEST,
     category: category,
   };
 };
-export const getDataByCategoryRequestSuccess = (category) => {
+export const getProductByCategoryRequestSuccess = (category) => {
   return {
-    type: actionLables.GET_DATA_BY_CATEGORY_REQUEST_SUCCESS,
+    type: actionLables.GET_PRODUCT_BY_CATEGORY_REQUEST_SUCCESS,
     category: category,
   };
 };
-export const getDataByCategoryRequestFail = () => {
+export const getProductByCategoryRequestFail = () => {
   return {
-    type: actionLables.GET_DATA_BY_CATEGORY_REQUEST_FAIL,
+    type: actionLables.GET_PRODUCT_BY_CATEGORY_REQUEST_FAIL,
   };
 };
