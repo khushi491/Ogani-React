@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
+import { addCartRequest, deleteProductRequest } from "../../store/actions";
 
-const ShopingCart = () => {
+const ShopingCart = (props) => {
+  const cart = useSelector((state) => state.cartReducer.data);
+  console.log(cart);
+  const { productId, qty } = props;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (productId) {
+      dispatch(addCartRequest(productId, qty));
+    }
+  }, []);
+
+  const onclickRemoveFromCart = (productId) => {
+    dispatch(deleteProductRequest(productId));
+  };
   return (
     <div>
       <Breadcrumb title="Shopping Cart" />
@@ -21,7 +36,46 @@ const ShopingCart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    {cart && cart.length === 0 ? (
+                      <div>Cart is empty</div>
+                    ) : (
+                      cart &&
+                      cart.map((item) => {
+                        // <Item key={item.product} item={item} />
+                        return (
+                          <tr>
+                            <td key={item.id} className="shoping__cart__item">
+                              <img src={item.image} alt="" />
+                              <h5>{item.title}</h5>
+                            </td>
+                            <td className="shoping__cart__price">
+                              {item.price}
+                            </td>
+                            <td className="shoping__cart__quantity">
+                              <div className="quantity">
+                                <div className="pro-qty">
+                                  <input type="text" qtyValue={item.quantity} />
+                                </div>
+                              </div>
+                            </td>
+                            <td className="shoping__cart__total">
+                              {" "}
+                              ${Math.floor(item.price * item.quantity)}
+                            </td>
+                            <td className="shoping__cart__item__close">
+                              <button
+                                onClick={() =>
+                                  onclickRemoveFromCart(item.product)
+                                }
+                                className="icon_close"
+                              ></button>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    )}
+
+                    {/* <tr>
                       <td className="shoping__cart__item">
                         <img src="img/cart/cart-1.jpg" alt="" />
                         <h5>Vegetable’s Package</h5>
@@ -74,7 +128,7 @@ const ShopingCart = () => {
                       <td className="shoping__cart__item__close">
                         <span className="icon_close"></span>
                       </td>
-                    </tr>
+                    </tr> */}
                   </tbody>
                 </table>
               </div>

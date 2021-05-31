@@ -1,6 +1,6 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
 import * as actionLabels from "../../actionLabels/actionLabels";
-import { data } from "../../data";
+
 import {
   deleteProductRequestSuccess,
   deleteProductRequestFail,

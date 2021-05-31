@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Lp1 from "../../assets/img/latest-product/lp-1.jpg";
@@ -33,7 +33,6 @@ const LetestProduct = (props) => {
   };
   const CustomRightArrow = ({ onClick, ...rest }) => {
     const {
-      onMove,
       carouselState: { currentSlide, deviceType },
     } = rest;
     // onMove means if dragging or swiping in progress.
@@ -49,7 +48,6 @@ const LetestProduct = (props) => {
 
   const CustomLeftArrow = ({ onClick, ...rest }) => {
     const {
-      onMove,
       carouselState: { currentSlide, deviceType },
     } = rest;
     // onMove means if dragging or swiping in progress.
@@ -76,7 +74,6 @@ const LetestProduct = (props) => {
               showDots={true}
               renderDotsOutside
               infinite={true}
-              autoPlay={props.deviceType !== "mobile" ? true : false}
               autoPlay
               autoPlaySpeed={2000}
               keyBoardControl={true}
@@ -86,7 +83,6 @@ const LetestProduct = (props) => {
               itemClass="carousel-item padding-40-px"
               customRightArrow={<CustomRightArrow />}
               customLeftArrow={<CustomLeftArrow />}
-              // want to know still about following props
               deviceType={props.deviceType}
               containerClass="carousel-container"
               removeArrowOnDeviceType={["tablet", "mobile"]}

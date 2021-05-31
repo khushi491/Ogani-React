@@ -4,7 +4,6 @@ import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 const Checkout = () => {
   return (
     <div>
-      <h1>Checkout</h1>
       <Breadcrumb title="CheckOut" />
       <section className="checkout spad">
         <div className="container">

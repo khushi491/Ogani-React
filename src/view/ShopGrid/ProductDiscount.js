@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -9,23 +9,31 @@ import Pd3 from "../../assets/img/product/discount/pd-3.jpg";
 import Pd4 from "../../assets/img/product/discount/pd-4.jpg";
 import Pd5 from "../../assets/img/product/discount/pd-5.jpg";
 import Pd6 from "../../assets/img/product/discount/pd-6.jpg";
-import { addCartRequest } from "../../store/actions";
+
+import { addCartRequest, getDataRequest } from "../../store/actions";
 
 const ProductDiscount = (props) => {
   const [product, setProduct] = useState();
 
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.shopReducer);
+  console.log({ data });
   const { freshMeat } = useSelector((state) => state.shopReducer);
   const { vegetables } = useSelector((state) => state.shopReducer);
   const { fastfood } = useSelector((state) => state.shopReducer);
   const { oatmeal } = useSelector((state) => state.shopReducer);
 
-  const addToCatrt = (event) => {
+  const addToCart = (event) => {
     event.preventDefault();
     console.log(product);
     dispatch(addCartRequest({ product }));
     setProduct("");
   };
+
+  useEffect(() => {
+    console.log("============>called");
+    dispatch(getDataRequest());
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -98,20 +106,32 @@ const ProductDiscount = (props) => {
               showDots={true}
               renderDotsOutside
               infinite={true}
-              autoPlay={props.deviceType !== "mobile" ? true : false}
+              //autoPlay={props.deviceType !== "mobile" ? true : false}
               autoPlay
               autoPlaySpeed={2000}
               keyBoardControl={true}
               customTransition="all 2s"
               transitionDuration={5000}
-              removeArrowOnDeviceType={["tablet", "mobile"]}
+              removeArrowOnDeviceType={[
+                "tablet",
+                "mobile",
+                "LargeDesktop",
+                "desktop",
+                "superLargeDesktop",
+              ]}
               itemClass="carousel-item padding-40-px"
               customRightArrow={<CustomRightArrow />}
               customLeftArrow={<CustomLeftArrow />}
               // want to know still about following props
               deviceType={props.deviceType}
               containerClass="carousel-container"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
+              // removeArrowOnDeviceType={[
+              //   "tablet",
+              //   "mobile",
+              //   "desktop",
+              //   "LargeDesktop",
+              //   "superLargeDesktop",
+              // ]}
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px"
             >
@@ -138,10 +158,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -178,11 +195,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
-                          onClick={(event) => addToCatrt(event)}{" "}
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -219,10 +232,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -259,10 +269,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -299,10 +306,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -339,10 +343,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -411,10 +412,7 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
-                        >
+                        <a href="void(0)" onClick={(event) => addToCart(event)}>
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -456,7 +454,7 @@ const ProductDiscount = (props) => {
                       <li>
                         <a
                           href="void(0)"
-                          onClick={(event) => addToCatrt(event)}
+                          onClick={(event) => addCartRequest(event)}
                         >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
@@ -498,7 +496,7 @@ const ProductDiscount = (props) => {
                         <li>
                           <a
                             href="void(0)"
-                            onClick={(event) => addToCatrt(event)}
+                            onClick={(event) => addToCart(event)}
                           >
                             <i className="fa fa-shopping-cart"></i>
                           </a>
@@ -541,7 +539,7 @@ const ProductDiscount = (props) => {
                         <li>
                           <a
                             href="void(0)"
-                            onClick={(event) => addToCatrt(event)}
+                            onClick={(event) => addToCart(event)}
                           >
                             <i className="fa fa-shopping-cart"></i>
                           </a>
