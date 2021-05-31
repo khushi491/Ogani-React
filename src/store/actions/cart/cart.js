@@ -21,21 +21,21 @@ export const addCartRequestFail = () => {
 
 //EDIT CART
 
-export const editCartRequest = (product) => {
+export const deleteProductRequest = (product) => {
   return {
-    type: actionLables.EDIT_CART_REQUEST,
+    type: actionLables.DELETE_PRODUCT_REQUEST,
     payload: product,
   };
 };
-export const editCartRequestSuccess = (product) => {
+export const deleteProductRequestSuccess = (product) => {
   return {
-    type: actionLables.EDIT_CART_REQUEST_SUCCESS,
+    type: actionLables.DELETE_PRODUCT_REQUEST_SUCCESS,
     payload: product,
   };
 };
-export const editCartRequestFail = () => {
+export const deleteProductRequestFail = () => {
   return {
-    type: actionLables.EDIT_CART_REQUEST_FAIL,
+    type: actionLables.DELETE_PRODUCT_REQUEST_FAIL,
   };
 };
 

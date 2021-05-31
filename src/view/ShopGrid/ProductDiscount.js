@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -8,8 +9,24 @@ import Pd3 from "../../assets/img/product/discount/pd-3.jpg";
 import Pd4 from "../../assets/img/product/discount/pd-4.jpg";
 import Pd5 from "../../assets/img/product/discount/pd-5.jpg";
 import Pd6 from "../../assets/img/product/discount/pd-6.jpg";
+import { addCartRequest } from "../../store/actions";
 
 const ProductDiscount = (props) => {
+  const [product, setProduct] = useState();
+
+  const dispatch = useDispatch();
+  const { freshMeat } = useSelector((state) => state.shopReducer);
+  const { vegetables } = useSelector((state) => state.shopReducer);
+  const { fastfood } = useSelector((state) => state.shopReducer);
+  const { oatmeal } = useSelector((state) => state.shopReducer);
+
+  const addToCatrt = (event) => {
+    event.preventDefault();
+    console.log(product);
+    dispatch(addCartRequest({ product }));
+    setProduct("");
+  };
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -121,7 +138,10 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -158,7 +178,11 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
+                          onClick={(event) => addToCatrt(event)}{" "}
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -195,7 +219,10 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -232,7 +259,10 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -269,7 +299,10 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -291,6 +324,7 @@ const ProductDiscount = (props) => {
                   <div
                     className="product__discount__item__pic set-bg"
                     data-setbg="img/product/discount/pd-6.jpg"
+                    style={{ backgroundImage: `url(${Pd6})` }}
                   >
                     <div className="product__discount__percent">-20%</div>
                     <ul className="product__item__pic__hover">
@@ -305,7 +339,10 @@ const ProductDiscount = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="void(0)">
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
                           <i className="fa fa-shopping-cart"></i>
                         </a>
                       </li>
@@ -324,6 +361,212 @@ const ProductDiscount = (props) => {
               </div>
             </Carousel>
           </div>
+        </div>
+        <div className="filter__item">
+          <div className="row">
+            <div className="col-lg-4 col-md-5">
+              <div className="filter__sort">
+                <span>Sort By</span>
+
+                <select>
+                  <option value="0">name</option>
+                </select>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-4">
+              <div className="filter__found">
+                <h6>
+                  <span>45</span> Products found
+                </h6>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-3">
+              <div className="filter__option">
+                <span className="icon_grid-2x2"></span>
+                <span className="icon_ul"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          {freshMeat.slice(0, 3).map((item) => {
+            console.log({ item });
+            return (
+              <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
+                <div className="product__item">
+                  <div
+                    className="product__item__pic set-bg"
+                    data-setbg={item.image}
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  >
+                    <ul className="product__item__pic__hover">
+                      <li>
+                        <a href="void(0)">
+                          <i className="fa fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="void(0)">
+                          <i className="fa fa-retweet"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
+                          <i className="fa fa-shopping-cart"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="product__item__text">
+                    <h6>
+                      <a href="void(0)">{item.title}</a>
+                    </h6>
+                    <h5>{item.price}</h5>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="row">
+          {vegetables.slice(1, 4).map((item) => {
+            console.log({ item });
+            return (
+              <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
+                <div className="product__item">
+                  <div
+                    className="product__item__pic set-bg"
+                    data-setbg={item.image}
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  >
+                    <ul className="product__item__pic__hover">
+                      <li>
+                        <a href="void(0)">
+                          <i className="fa fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="void(0)">
+                          <i className="fa fa-retweet"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="void(0)"
+                          onClick={(event) => addToCatrt(event)}
+                        >
+                          <i className="fa fa-shopping-cart"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="product__item__text">
+                    <h6>
+                      <a href="void(0)">{item.title}</a>
+                    </h6>
+                    <h5>{item.price}</h5>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div className="row">
+            {fastfood.slice(1, 4).map((item) => {
+              console.log({ item });
+              return (
+                <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
+                  <div className="product__item">
+                    <div
+                      className="product__item__pic set-bg"
+                      data-setbg={item.image}
+                      style={{ backgroundImage: `url(${item.image})` }}
+                    >
+                      <ul className="product__item__pic__hover">
+                        <li>
+                          <a href="void(0)">
+                            <i className="fa fa-heart"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="void(0)">
+                            <i className="fa fa-retweet"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="void(0)"
+                            onClick={(event) => addToCatrt(event)}
+                          >
+                            <i className="fa fa-shopping-cart"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="product__item__text">
+                      <h6>
+                        <a href="void(0)">{item.title}</a>
+                      </h6>
+                      <h5>{item.price}</h5>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="row">
+            {oatmeal.slice(1, 4).map((item) => {
+              console.log({ item });
+              return (
+                <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
+                  <div className="product__item">
+                    <div
+                      className="product__item__pic set-bg"
+                      data-setbg={item.image}
+                      style={{ backgroundImage: `url(${item.image})` }}
+                    >
+                      <ul className="product__item__pic__hover">
+                        <li>
+                          <a href="void(0)">
+                            <i className="fa fa-heart"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="void(0)">
+                            <i className="fa fa-retweet"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="void(0)"
+                            onClick={(event) => addToCatrt(event)}
+                          >
+                            <i className="fa fa-shopping-cart"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="product__item__text">
+                      <h6>
+                        <a href="void(0)">{item.title}</a>
+                      </h6>
+                      <h5>{item.price}</h5>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="product__pagination">
+          <a href="void(0)">1</a>
+          <a href="void(0)">2</a>
+          <a href="void(0)">3</a>
+          <a href="void(0)">
+            <i className="fa fa-long-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>

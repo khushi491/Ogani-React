@@ -112,7 +112,7 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="void(0)">
+                    <Link to="/shopingCart">
                       <i className="fa fa-shopping-bag"></i> <span>3</span>
                     </Link>
                   </li>

@@ -1,7 +1,26 @@
-import React from "react";
-//import feature1 from '../../../assets/img/featured/feature-1.jpg'
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartRequest } from "../../../store/actions";
+import feature1 from "../../../assets/img/featured/feature-1.jpg";
+import feature2 from "../../../assets/img/featured/feature-2.jpg";
+import feature3 from "../../../assets/img/featured/feature-3.jpg";
+import feature4 from "../../../assets/img/featured/feature-4.jpg";
+import feature5 from "../../../assets/img/featured/feature-5.jpg";
+import feature6 from "../../../assets/img/featured/feature-6.jpg";
+import feature7 from "../../../assets/img/featured/feature-7.jpg";
+import feature8 from "../../../assets/img/featured/feature-8.jpg";
+import feature9 from "../../../assets/img/featured/feature-1.jpg";
 
 const FeaturedSection = () => {
+  const [product, setProduct] = useState();
+
+  const dispatch = useDispatch();
+  const addToCatrt = (event) => {
+    event.preventDefault();
+    console.log(product);
+    dispatch(addCartRequest({ product }));
+    setProduct("");
+  };
   return (
     <div>
       <section className="featured spad">
@@ -30,6 +49,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-1.jpg"
+                  style={{ backgroundImage: `url(${feature1})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -43,7 +63,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -62,6 +82,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-2.jpg"
+                  style={{ backgroundImage: `url(${feature2})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -75,7 +96,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -94,6 +115,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-3.jpg"
+                  style={{ backgroundImage: `url(${feature3})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -107,7 +129,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -126,6 +148,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-4.jpg"
+                  style={{ backgroundImage: `url(${feature4})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -139,7 +162,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -158,6 +181,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-5.jpg"
+                  style={{ backgroundImage: `url(${feature5})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -171,7 +195,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -190,6 +214,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-6.jpg"
+                  style={{ backgroundImage: `url(${feature6})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -203,7 +228,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -222,6 +247,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-7.jpg"
+                  style={{ backgroundImage: `url(${feature7})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -235,7 +261,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>
@@ -254,6 +280,7 @@ const FeaturedSection = () => {
                 <div
                   className="featured__item__pic set-bg"
                   data-setbg="img/featured/feature-8.jpg"
+                  style={{ backgroundImage: `url(${feature8})` }}
                 >
                   <ul className="featured__item__pic__hover">
                     <li>
@@ -267,7 +294,7 @@ const FeaturedSection = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="void(0)">
+                      <a href="void(0)" onClick={(event) => addToCatrt(event)}>
                         <i className="fa fa-shopping-cart"></i>
                       </a>
                     </li>

@@ -94,7 +94,7 @@ const CategoriesSection = (props) => {
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px"
             >
-              <div className="col-lg-6">
+              <div className="col-lg-10">
                 <div
                   className="categories__item set-bg"
                   data-setbg="img/categories/cat-1.jpg"
@@ -105,7 +105,7 @@ const CategoriesSection = (props) => {
                   </h5>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-10">
                 <div
                   className="categories__item set-bg"
                   data-setbg="img/categories/cat-2.jpg"
@@ -116,7 +116,7 @@ const CategoriesSection = (props) => {
                   </h5>
                 </div>
               </div>
-              <div className="col-lg-6  ">
+              <div className="col-lg-10 ">
                 <div
                   className="categories__item set-bg"
                   data-setbg="img/categories/cat-3.jpg"
@@ -127,7 +127,7 @@ const CategoriesSection = (props) => {
                   </h5>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-10">
                 <div
                   className="categories__item set-bg"
                   data-setbg="img/categories/cat-4.jpg"
@@ -138,7 +138,7 @@ const CategoriesSection = (props) => {
                   </h5>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-10">
                 <div
                   className="categories__item set-bg"
                   data-setbg="img/categories/cat-5.jpg"

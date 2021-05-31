@@ -7,7 +7,6 @@ const ShopGrid = () => {
     <div>
       <Breadcrumb title="shop grid" />
       <ProductSection />
-      <h1>ShopGrid</h1>
     </div>
   );
 };
